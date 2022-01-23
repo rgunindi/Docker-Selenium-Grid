@@ -14,3 +14,20 @@ Belirttiğimiz senaryoların testleri yazılırken bazı kurallar temel alınara
     *Testler otomatize edilerek çalıştırılmıştır.
     *Testler anlaşılır, okunaklı, tekrar edilebilir olarak yazılmıştır.
     *Testler başarısız olduğunda test koşumu durdurularak, ilgili hata ayrıntılı olarak belirtilmiştir.
+Test Case' imizin aldığı parametler şunlardır:
+  -Browser: Hangi tarayıcının çalıştırılmak istendiğinin belirtildiği parametre(Chrome-Firefox-Edge-Opera-Safari)
+  -Environment: Hangi ortamda çalıştırılmak istendiğine dair parametre(test-qa-staging-prod)
+  -SeleniumGrid Ortamında Çalıştırılmasının istenip istenmediğine dair parametre(true/false)
+  
+Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalıştırıldığını anlayabilğimiz standart çıktı örneği:
+  -[pool-2-thread-2]
+  -[pool-2-thread-3]
+  -[pool-2-thread-4]
+  --Yukarı da belirtildiği gibi 'pool-2' iş parçacığı havuzunda 2-3-4 numaları farklı iş parçacıkları çalışmaktadır.
+  
+  Selenium Grid
+  -------------
+  Test adımlamızın docker selenium grid ortamında çalıştırılması mümkündür. Bunun için gerekli adımlar aşağıda açıklanmakdtır:
+  
+  Öncelikle varsayılan olarak testlerimiz selenium ortamında çalıştırılmayacak şekilde parametre almaktadır. Bu parametrenin değiştirilerek testlerimiz docker selenim grid ortamında çalıştırılmaya hazır hale gelmektedir.
+  Parametrenin belirtildiği kısım: 
