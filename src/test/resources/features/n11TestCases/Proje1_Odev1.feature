@@ -1,8 +1,7 @@
 @first_homework
 Feature: In the first one, the number of comments made about the selected store is checked.
-
   Scenario Outline: The number of comments made about the selected store is checked.
-    Given I launch <desired_browser> browser and <env> environment
+    Given I launch <desired_browser> browser and <env> environment <Docker_Selenium_Grid>
     When  Go to "https://www.n11.com"
     And   Mağazalar|Mağazaları Gör from the header is selected
     When  Click on Tüm Mağazalar button
@@ -12,8 +11,10 @@ Feature: In the first one, the number of comments made about the selected store 
     Then  It is checked how many comments are made about the selected Store
 
     Examples:
-    |desired_browser|   |env |
-    |     Chrome    |   |test|
-#    |     Firefox   |   |test|
-#    |     Edge      |   |test|
+    |desired_browser|   |env | |Docker_Selenium_Grid|
+    |     Firefox   |   |test|      |true|
+
+
+#    |     Chrome    |   |test|      |false|
+#    |     Edge      |   |test|     |false|
                      # |qa-staging-prod|

@@ -1,7 +1,6 @@
 package Proje.Odev3.stepDefinitions;
 
 import Proje.Odev3.driverControl.driverControls;
-import Proje.Odev3.driverControl.driverShutdown;
 import Proje.Odev3.navigationUrl.Navigate;
 import Proje.Odev3.pageObjects.*;
 import io.cucumber.java.After;
@@ -9,7 +8,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 
 public class ThirdScenarioSteps {
@@ -18,16 +16,16 @@ public class ThirdScenarioSteps {
     Navigate navigate;
     SearchPage sPage;
 
-    public void setUp(String driverName,String env){
-        driver= driverControls.driverControl(driver,driverName);
+    public void setUp(String driverName,String env,String seleniumGrid){
+        driver= driverControls.driverControl(driver,driverName,seleniumGrid);
         System.out.printf("Environment %s\n",env);
         n11=new N11Page(driver);
         navigate=new Navigate(driver);
         sPage=new SearchPage(driver);
     }
-    @Given("I launch {} Browser and {} Environment")
-    public void iLaunchDesired_BrowserAndEnvironment(String driverName,String env) {
-        setUp(driverName,env);
+    @Given("I launch {} Browser and {} Environment {}")
+    public void iLaunchDesired_BrowserAndEnvironment(String driverName,String env,String seleniumGrid) {
+        setUp(driverName,env,seleniumGrid);
     }
 
     @When("Go To {string}")
@@ -48,7 +46,6 @@ public class ThirdScenarioSteps {
 
     @Then("Free shipping products are does list")
     public void freeShippingProductsAreDoesList() { sPage.freeShippingList();
-       // driverShutdown.driverClose(driver);
     }
     @After
     public void driverClose(){driver.quit();}

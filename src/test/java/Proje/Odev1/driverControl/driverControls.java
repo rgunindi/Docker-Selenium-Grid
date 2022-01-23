@@ -23,31 +23,47 @@ public class driverControls {
     static FirefoxOptions optionsfi;
     static EdgeOptions optionsed;
     static OperaOptions optionsop;
-    static ChromeOptions op=new ChromeOptions();
-    public static WebDriver driverControl(WebDriver driver, String driverName) {
+    static ChromeOptions op = new ChromeOptions();
+
+    public static WebDriver driverControl(WebDriver driver, String driverName, String seleniumGrid) {
+        String dockerSeleniumGrid = seleniumGrid.toUpperCase();
         if (Objects.equals(driverName, "Chrome")) {
             chromeOptions();
             WebDriverManager.chromedriver().setup();
             try {
-                driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsch);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new ChromeDriver(optionsch);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsch);
+                }
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (Objects.equals(driverName, "Firefox")) {
             firefoxOptions();
             WebDriverManager.firefoxdriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsfi);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new FirefoxDriver(optionsfi);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsfi);
+                }
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }  else if (Objects.equals(driverName, "Opera")) {
+        } else if (Objects.equals(driverName, "Opera")) {
             operaOptions();
             WebDriverManager.operadriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsop);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new OperaDriver(optionsop);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsop);
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -55,15 +71,21 @@ public class driverControls {
             edgeOptions();
             WebDriverManager.edgedriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsed);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new EdgeDriver(optionsed);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsed);
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
         } else System.out.println("Driver range out of test.");
+
         return driver;
     }
-    static void chromeOptions(){
+
+    static void chromeOptions() {
         optionsch = new ChromeOptions();
         System.setProperty("webdriver.chrome.args", "--disable-logging");
         System.setProperty("webdriver.chrome.verboseLogging", "false");
@@ -79,15 +101,17 @@ public class driverControls {
         optionsch.addArguments("security.sandbox.content.level", "5");
         optionsch.addArguments("--disable-notifications");
     }
-    static void firefoxOptions(){
+
+    static void firefoxOptions() {
         optionsfi = new FirefoxOptions();
         System.setProperty("webdriver.gecko.args", "--disable-logging");
         System.setProperty("webdriver.gecko.silentOutput", "true");
         optionsfi.addArguments("--headless");
-        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
-        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
     }
-    static void edgeOptions(){
+
+    static void edgeOptions() {
         optionsed = new EdgeOptions();
         System.setProperty("webdriver.edge.args", "--disable-logging");
         System.setProperty("webdriver.edge.silentOutput", "true");
@@ -103,7 +127,8 @@ public class driverControls {
         optionsed.addArguments("security.sandbox.content.level", "5");
         optionsed.addArguments("--disable-notifications");
     }
-    static void operaOptions(){
+
+    static void operaOptions() {
         optionsop = new OperaOptions();
         System.setProperty("webdriver.opera.args", "--disable-logging");
         System.setProperty("webdriver.opera.silentOutput", "true");

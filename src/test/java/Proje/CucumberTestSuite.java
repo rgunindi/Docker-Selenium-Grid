@@ -11,5 +11,8 @@ import org.junit.runner.RunWith;
         "rerun:target/rerun.txt"},
         features = "classpath:features",
         monochrome = true
+        //,dryRun = true
 )
 public class CucumberTestSuite {}
+
+

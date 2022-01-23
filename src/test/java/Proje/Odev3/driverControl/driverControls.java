@@ -2,10 +2,13 @@ package Proje.Odev3.driverControl;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -19,30 +22,45 @@ public class driverControls {
     static EdgeOptions optionsed;
     static OperaOptions optionsop;
 
-    public static WebDriver driverControl(WebDriver driver, String driverName) {
+    public static WebDriver driverControl(WebDriver driver, String driverName, String seleniumGrid) {
+        String dockerSeleniumGrid = seleniumGrid.toUpperCase();
         if (Objects.equals(driverName, "Chrome")) {
             chromeOptions();
             WebDriverManager.chromedriver().setup();
             try {
-                driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsch);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new ChromeDriver(optionsch);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsch);
+                }
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (Objects.equals(driverName, "Firefox")) {
             firefoxOptions();
             WebDriverManager.firefoxdriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsfi);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new FirefoxDriver(optionsfi);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsfi);
+                }
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        }  else if (Objects.equals(driverName, "Opera")) {
+        } else if (Objects.equals(driverName, "Opera")) {
             operaOptions();
             WebDriverManager.operadriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsop);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new OperaDriver(optionsop);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsop);
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -50,12 +68,17 @@ public class driverControls {
             edgeOptions();
             WebDriverManager.edgedriver().setup();
             try {
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),optionsed);
-            } catch (MalformedURLException e) {
+                if (Objects.equals(dockerSeleniumGrid, "FALSE")) {
+                    driver = new EdgeDriver(optionsed);
+                } else {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), optionsed);
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
         } else System.out.println("Driver range out of test.");
+
         return driver;
     }
     static void chromeOptions(){

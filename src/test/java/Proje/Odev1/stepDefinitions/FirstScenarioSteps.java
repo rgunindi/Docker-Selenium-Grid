@@ -1,7 +1,6 @@
 package Proje.Odev1.stepDefinitions;
 
 import Proje.Odev1.driverControl.driverControls;
-import Proje.Odev1.driverControl.driverShutdown;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,8 +23,8 @@ public class FirstScenarioSteps {
     MagazaCommentPage cPage;
     Navigate navigate;
     //Set Up Environments Required
-    public void SetupEnv(String driverName,String env) {
-        driver=driverControls.driverControl(driver,driverName);
+    public void SetupEnv(String driverName,String env,String seleniumGrid) {
+        driver=driverControls.driverControl(driver,driverName, seleniumGrid);
         System.out.printf("Environment %s\n",env);
         n11=new N11Page(driver);
         mPage=new MagazalarPage(driver);
@@ -35,9 +34,9 @@ public class FirstScenarioSteps {
         cPage =new MagazaCommentPage(driver);
     }
 
-    @Given("I launch {} browser and {} environment")
-    public void I_launch_desired_browser_and_target_environment(String driverName,String env) {
-      SetupEnv(driverName,env);
+    @Given("I launch {} browser and {} environment {}")
+    public void I_launch_desired_browser_and_target_environment(String driverName,String env,String seleniumGrid) {
+      SetupEnv(driverName,env, seleniumGrid);
     }
 
     @When("Go to {string}")

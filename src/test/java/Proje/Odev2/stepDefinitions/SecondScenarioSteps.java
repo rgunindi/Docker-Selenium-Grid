@@ -1,7 +1,6 @@
 package Proje.Odev2.stepDefinitions;
 
 import Proje.Odev2.driverControl.driverControls;
-import Proje.Odev2.driverControl.driverShutdown;
 import Proje.Odev2.navigationUrl.Navigate;
 import Proje.Odev2.pageObjects.*;
 import io.cucumber.java.After;
@@ -19,8 +18,8 @@ public class SecondScenarioSteps {
     BucketPage bPage;
     GuestUserPage gPage;
     PurchasePage pPage;
-    public void setUp(String driverName,String env){
-        driver= driverControls.driverControl(driver,driverName);
+    public void setUp(String driverName,String env, String seleniumGrid){
+        driver= driverControls.driverControl(driver,driverName,seleniumGrid);
         System.out.printf("Environment %s\n",env);
         n11=new N11Page(driver);
         navigate=new Navigate(driver);
@@ -30,9 +29,9 @@ public class SecondScenarioSteps {
         pPage=new PurchasePage(driver);
     }
 
-    @Given("I launch {} Browser and {} environment")
-    public void ILaunchDesired_browserBrowserAndEnvEnvironment(String driverName,String env) {
-    setUp(driverName,env);
+    @Given("I launch {} Browser and {} environment {}")
+    public void ILaunchDesired_browserBrowserAndEnvEnvironment(String driverName,String env,String seleniumGrid) {
+    setUp(driverName,env,seleniumGrid);
     }
 
     @When("Go to  {string}")
