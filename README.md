@@ -27,7 +27,19 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
   
   Selenium Grid
   -------------
-  Test adımlamızın docker selenium grid ortamında çalıştırılması mümkündür. Bunun için gerekli adımlar aşağıda açıklanmakdtır:
-  
+  Test adımlamızın docker selenium grid ortamında çalıştırılması mümkündür. Bunun için gerekli adımlar aşağıda açıklanmaktatır:
+  1.Adım-Parametrenin Verilmesi:
   Öncelikle varsayılan olarak testlerimiz selenium ortamında çalıştırılmayacak şekilde parametre almaktadır. Bu parametrenin değiştirilerek testlerimiz docker selenim grid ortamında çalıştırılmaya hazır hale gelmektedir.
   Parametrenin belirtildiği kısım: 
+  Img-1
+  ![Proje1_Odev1.feature](https://user-images.githubusercontent.com/76232388/150688449-d1a8b403-b907-452a-bf45-afb0acb4cae1.png)
+    Proje1_Odev1.feature Dosyasında paremetrenin belirtildiği kısım Img-1 de gösteriştir.
+    false: Selenim Grid Off
+    true:  Selenium Grid Onn
+    
+  2.Adım-Selenium Grid Ortamının Ayağa Kaldırılması:
+  Bu adımı 2(iki) ayrı yol kullanarak yapabiliriz.
+  -Birinci Adım: Proje Dosya Ortamında bulunan dockerGridUp.sh adlı shell dosyasının çalıştırılmasıdır. 
+    Komut satırından : 
+    
+    
