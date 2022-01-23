@@ -1,5 +1,6 @@
 ## n11 TalentHub 2022 Case Test 
-### The project directory structure
+### Proje dizin yapısı
+
 
 ![dizinYapisi](https://user-images.githubusercontent.com/76232388/150692400-2bf5e4f0-2e5d-4e54-918a-f8975026da8d.png)
 
@@ -18,45 +19,62 @@ Belirttiğimiz senaryoların testleri yazılırken bazı kurallar temel alınara
     >- Testler anlaşılır, okunaklı, tekrar edilebilir olarak yazılmıştır.
     >- Testler başarısız olduğunda test koşumu durdurularak, ilgili hata ayrıntılı olarak belirtilmiştir.
 # Test Case' imizin aldığı parametler şunlardır:
-  - Browser: Hangi tarayıcının çalıştırılmak istendiğinin belirtildiği parametre( [Chrome-Firefox-Edge-Opera] )
-  - Environment: Hangi ortamda çalıştırılmak istendiğine dair parametre[(test-qa-staging-prod)]
-  - SeleniumGrid Ortamında Çalıştırılmasının istenip istenmediğine dair parametre( [true/false] )
+  - Browser: Hangi tarayıcının çalıştırılmak istendiğinin belirtildiği parametre(`Chrome-Firefox-Edge-Opera`)
+  - Environment: Hangi ortamda çalıştırılmak istendiğine dair parametre(`test-qa-staging-prod`)
+  - SeleniumGrid Ortamında Çalıştırılmasının istenip istenmediğine dair parametre(`true/false`)
   
 Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalıştırıldığını anlayabilğimiz standart çıktı örneği:
-  -[pool-2-thread-2]
-  -[pool-2-thread-3]
-  -[pool-2-thread-4]
-  --Yukarı da belirtildiği gibi 'pool-2' iş parçacığı havuzunda 2-3-4 numaları farklı iş parçacıkları çalışmaktadır.
+  - [pool-2-thread-2]
+  - [pool-2-thread-3]
+  - [pool-2-thread-4]
   
-  Selenium Grid
+ Yukarı da belirtildiği gibi 'pool-2' iş parçacığı havuzunda 2-3-4 numaları farklı iş parçacıkları çalışmaktadır.
+  
+ # Selenium Grid
   -------------
   Test adımlamızın docker selenium grid ortamında çalıştırılması mümkündür. Bunun için gerekli adımlar aşağıda açıklanmaktatır:
-  1.Adım-Parametrenin Verilmesi:
+  
+  | 1.Adım->Parametrenin Verilmesi |
+  |--------------|
+  
   Öncelikle varsayılan olarak testlerimiz selenium ortamında çalıştırılmayacak şekilde parametre almaktadır. Bu parametrenin değiştirilerek testlerimiz docker selenim grid ortamında çalıştırılmaya hazır hale gelmektedir.
+  
   Parametrenin belirtildiği kısım: 
+  
   Img-1
+  
   ![Proje1_Odev1.feature](https://user-images.githubusercontent.com/76232388/150688449-d1a8b403-b907-452a-bf45-afb0acb4cae1.png)
-    Proje1_Odev1.feature Dosyasında paremetrenin belirtildiği kısım Img-1 de gösteriştir.
-    false: Selenim Grid Off
-    true:  Selenium Grid Onn
+  
+  Proje1 feature Dosyalarinda paremetrenin belirtildiği kısım Img-1 de gösteriştir.
+   > - false: Selenim Grid Off
+   > - true:  Selenium Grid Onn
+   
    desiredBrowser
    -------------
-   <img src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/256/Chrome-icon.png" alt="Girl in a jacket" width="30" height="30">
-   <img src="https://icons.iconarchive.com/icons/carlosjj/mozilla/256/Firefox-icon.png" alt="Girl in a jacket" width="30" height="30">
-   vb..
+   <img src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/256/Chrome-icon.png" alt="Girl in a jacket" width="30" height="30"> <img src="https://icons.iconarchive.com/icons/carlosjj/mozilla/256/Firefox-icon.png" width="30" height="30"> <img src="https://icons.iconarchive.com/icons/benjigarner/softdimension/256/Opera-icon.png" width="30" height="30"> <img src="https://img.icons8.com/color/48/000000/ms-edge-new.png" width="30" height="30"/>
     
-  2.Adım-Selenium Grid Ortamının Ayağa Kaldırılması:
+  | 2.Adım->Selenium Grid Ortamının Ayağa Kaldırılması | 
+  |--------------|
+  
   Bu adımı 2(iki) ayrı yol kullanarak yapabiliriz.
-  -Birinci Adım: Proje Dosya Ortamında bulunan dockerGridUp.sh adlı shell dosyasının çalıştırılmasıdır. 
+  
+  - Birinci Adım: Proje Dosya Ortamında bulunan dockerGridUp.sh adlı shell dosyasının çalıştırılmasıdır. 
+    ```sh
     Komut satırı : (windows)    : ./dockerGridUp.sh
                    (MacOs/Linux): ./dockerGridUp.sh #Dosyaya calisma izni verilmesi için chmod +x dockerGridUp.sh
-   -İkinci Adım: Projenin Dosya Ortamında bulunan seleniumGrid.yml dosyasını ayağa kaldırmaktır. Bunun için:
+    ```
+  - İkinci Adım: Projenin Dosya Ortamında bulunan seleniumGrid.yml dosyasını ayağa kaldırmaktır. Bunun için:
+    ```sh
     Komut satırı : (windows)    : docker-compose -f .\seleniumGrid.yml up
                    (MacOs/Linux): docker-compose -f .\seleniumGrid.yml up
-                   
-  Selenium Docker ortam gereklilikleri ayağa kaldırıldıktan sonra (Docker_Selenium_Grid->true olduğundan emin olun!) testlerin çalıştırılması selenium grid üzerinden yapılacaktır. Testleri bir IDE üzerinden(IntellijIdea*Eclipse) veya komut satırından mvn verify test ile yürütebilirsiniz.
-  http://localhost:4444/ui/index.html üzerinden browserların durumu takip edilebilir.
+     ```    
+     
+ > Selenium Docker ortam gereklilikleri ayağa kaldırıldıktan sonra (Docker_Selenium_Grid->true olduğundan emin olun!) testlerin çalıştırılması selenium grid üzerinden yapılacaktır. Testleri bir IDE üzerinden(IntellijIdea-Eclipse) veya  komut satırından **mvn verify test** ile yürütebilirsiniz.      
+
+ * [http://localhost:4444/ui/index.html](http://localhost:4444/ui/index.html) üzerinden browserların durumu takip edilebilir.
   
-  Ramazan G.
+> Note: Proje1_Odev_1 de A dan Z' ye kadar olan mağaza isim adedinin `64524` olmasından dolayı test süresi uzundur.
+
+Ramazan G.
     
     
