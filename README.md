@@ -76,6 +76,9 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
   
 > Note: Proje1_Odev_1 de A dan Z' ye kadar olan mağaza isim adedinin `64524` olmasından dolayı test süresi uzundur.
 
-Ramazan G.
+    Selenium Grid :
     
+![2022-01-23 (3)](https://user-images.githubusercontent.com/76232388/150695926-7365e1c2-cd7f-437a-ad2c-4e29c3ed9c2b.png)
+
+**Ramazan G.**
     
