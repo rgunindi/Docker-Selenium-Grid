@@ -1,4 +1,16 @@
-n11 TalentHub 2022 Case Test 
+## n11 TalentHub 2022 Case Test 
+### The project directory structure
+The project has build scripts for both Maven and Gradle, and follows the standard directory structure used in most Serenity projects:
+```Gherkin
+src
+  + main
+  + test
+    + java                        Test runners and supporting code
+    + resources
+      + features                  Feature files
+     + search                  Feature file subdirectories 
+             n11FacebookLogin.feature
+```
 
 n11 Test adımlarını anlayabilmek için öncelikle senaryo bilgilerini belirtelim:
   - 3 ayrı senaryo test edilmektedir. Senaryolarımız şunlardır:
