@@ -7,8 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        plugin = {"pretty",
-        "rerun:target/rerun.txt"},
+        plugin = {"pretty"},
         features = "classpath:features",
         monochrome = true
         //,dryRun = true
