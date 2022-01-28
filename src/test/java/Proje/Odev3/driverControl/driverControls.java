@@ -92,7 +92,7 @@ public class driverControls {
         optionsch.addArguments("disable-infobars"); // disabling infobars
         optionsch.addArguments("--disable-extensions"); // disabling extensions
         optionsch.addArguments("--disable-gpu"); // applicable to windows os only
-        optionsch.addArguments("window-size=1024,1024"); // Bypass OS security model
+       // optionsch.addArguments("window-size=1024,1024"); // Bypass OS security model
         optionsch.addArguments("dom.ipc.processCount", "1");
         optionsch.addArguments("security.sandbox.content.level", "5");
         optionsch.addArguments("--disable-notifications");
@@ -109,7 +109,7 @@ public class driverControls {
         optionsed = new EdgeOptions();
         System.setProperty("webdriver.edge.args", "--disable-logging");
         System.setProperty("webdriver.edge.silentOutput", "true");
-        optionsed.addArguments("--headless");
+        //optionsed.addArguments("--headless");
         optionsed.addArguments("--no-sandbox");
         optionsed.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         optionsed.addArguments("disable-infobars"); // disabling infobars

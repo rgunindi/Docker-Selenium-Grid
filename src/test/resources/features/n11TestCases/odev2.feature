@@ -13,7 +13,7 @@ Feature: In the second time, the products added to the cart are tried to be purc
 
     Examples:
       |desired_browser|   |env | |Docker_Selenium_Grid|
-      |     Chrome    |   |test|      |  true   |
-#    |     Firefox    |   |test|        |true|
-#    |     Edge      |   |test|         |true|
+      |     Chrome    |   |test|      |  false   |
+#      |     Firefox    |   |test|        |false|
+#    |     Edge      |   |test|         |false|
                      # |qa-staging-prod|

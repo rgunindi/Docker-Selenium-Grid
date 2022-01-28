@@ -67,6 +67,7 @@ public class SecondScenarioSteps {
     public void attemptsToPurchaseProductsWithIncorrectCreditCardInformation() {
         pPage.purchase();
     }
+
     @After
     public void driverClose(){driver.quit();}
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.*;
+
 public class BucketPage {
     WebDriver driver;
 
@@ -14,9 +16,13 @@ public class BucketPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "table:nth-child(7) > tbody > tr > td.prodPrice > div.spinnerField > div > span.spinnerUp.spinnerArrow")
+    @FindBy(css = "td.prodPrice > div.priceTag > div > span")
     @CacheLookup
-    WebElement priceArea;
+    List<WebElement> priceAreas;
+
+    @FindBy(css = "td.prodPrice > div.spinnerField > div > span.spinnerUp.spinnerArrow")
+    @CacheLookup
+    List<WebElement> addProduct;
 
     @FindBy(css = "#js-buyBtn")
     @CacheLookup
@@ -28,20 +34,38 @@ public class BucketPage {
 
     void disablePopUp() {
         try {
-            Thread.sleep(3000);
+            waits(3);
+            disableKvkPopup.click();
         } catch (Exception e) {
         }
-        disableKvkPopup.click();
+
     }
 
+    void calculatingAmountProduct(){
+        waits(2);
+        Map<Integer, WebElement> amountMap = new HashMap<Integer, WebElement>();
+        List<WebElement> elMap = new ArrayList<>(addProduct);
+        int count=0;
+        for (WebElement el:priceAreas) {
+            Integer amount=Integer.parseInt(el.getText().replaceAll("\\D+",""));
+            amountMap.put(amount, elMap.get(count));
+            count++;
+        }
+        List sortedAmounts=new ArrayList(amountMap.keySet());
+        Collections.sort(sortedAmounts);
+        WebElement el= amountMap.get(sortedAmounts.get(0));
+        el.click();
+        waits(1);
+    }
     public void handle() {
         disablePopUp();
-        for (int i = 1; i <= 2; i++) {
-            try {
-                priceArea.click();
-            } catch (Exception ex){//disablePopUp();
-                i--;}
-        }
+        calculatingAmountProduct();
         purchaseBtn.click();
+    }
+    void waits(int time) {
+        try {
+            Thread.sleep((time * 1000L));
+        } catch (Exception ignored) {
+        }
     }
 }
