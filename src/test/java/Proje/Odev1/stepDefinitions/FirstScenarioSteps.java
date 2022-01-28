@@ -1,12 +1,14 @@
 package Proje.Odev1.stepDefinitions;
 
-import Proje.Odev1.driverControl.driverControls;
+
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import Proje.Odev1.driverControl.driverControls;
+import Proje.Odev1.driverControl.driverShutdown;
 import Proje.Odev1.navigationUrl.Navigate;
 import Proje.Odev1.pageObjects.MagazaCommentPage;
 import Proje.Odev1.pageObjects.MagazalarPage;
@@ -47,6 +49,7 @@ public class FirstScenarioSteps {
     public void magazalari_gor() {
     n11.clickOnTumMagazalariGor();
     }
+
     @When("Click on Tüm Mağazalar button")
     public void click_on_tum_magazalar_button() {
     mPage.clickOnTumMagazalar();
@@ -70,7 +73,6 @@ public class FirstScenarioSteps {
     @Then("It is checked how many comments are made about the selected Store")
     public void It_is_checked_how_many_comments_are_made_about_the_selected_store() {
         cPage.checkedComment();
+        driverShutdown.driverClose(driver);
     }
-    @After
-    public void driverClose(){driver.quit();}
 }

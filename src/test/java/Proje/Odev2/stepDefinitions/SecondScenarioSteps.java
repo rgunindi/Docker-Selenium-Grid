@@ -1,9 +1,9 @@
 package Proje.Odev2.stepDefinitions;
 
+import Proje.Odev2.driverControl.driverShutdown;
 import Proje.Odev2.driverControl.driverControls;
 import Proje.Odev2.navigationUrl.Navigate;
 import Proje.Odev2.pageObjects.*;
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -66,8 +66,6 @@ public class SecondScenarioSteps {
     @Then("Attempt to purchase products with incorrect credit card information")
     public void attemptsToPurchaseProductsWithIncorrectCreditCardInformation() {
         pPage.purchase();
+        driverShutdown.driverClose(driver);
     }
-
-    @After
-    public void driverClose(){driver.quit();}
 }

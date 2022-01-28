@@ -26,10 +26,12 @@ public class BufferedWriteFile {
     public void printToFile() {
         String xpath= MagazalarPage.xpathMagazaLetter;
         //31 Letter A..Z
-        for (int i = 1; i <=31; i++) {//SIMDILIK 2 YAPTIK 31 OLACAK..
+        for (int i = 1; i <=31; i++) {
             lettersXpath.add(xpath+"/span["+i+"]"); //-->span[i]
         }
+
         int countLetter=0;
+
         for (String x:lettersXpath){
             countLetter++;
             try{ Thread.sleep(1000);}catch(Exception ex) {}
@@ -50,8 +52,10 @@ public class BufferedWriteFile {
                     try{  outFile.println(txtStoreName+" "+storeUrl);}catch (Exception ignored){}
                 }
             }
-            outFile.flush();
+
         }
+        assert outFile != null;
+        outFile.flush();
         outFile.close();
     }
 }

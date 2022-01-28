@@ -109,7 +109,7 @@ public class driverControls {
         optionsed = new EdgeOptions();
         System.setProperty("webdriver.edge.args", "--disable-logging");
         System.setProperty("webdriver.edge.silentOutput", "true");
-        //optionsed.addArguments("--headless");
+        optionsed.addArguments("--headless");
         optionsed.addArguments("--no-sandbox");
         optionsed.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         optionsed.addArguments("disable-infobars"); // disabling infobars

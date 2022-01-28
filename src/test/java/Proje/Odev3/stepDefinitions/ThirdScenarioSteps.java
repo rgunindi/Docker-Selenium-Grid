@@ -1,9 +1,9 @@
 package Proje.Odev3.stepDefinitions;
 
 import Proje.Odev3.driverControl.driverControls;
+import Proje.Odev3.driverControl.driverShutdown;
 import Proje.Odev3.navigationUrl.Navigate;
 import Proje.Odev3.pageObjects.*;
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -46,7 +46,6 @@ public class ThirdScenarioSteps {
 
     @Then("Free shipping products are does list")
     public void freeShippingProductsAreDoesList() { sPage.freeShippingList();
+        driverShutdown.driverClose(driver);
     }
-    @After
-    public void driverClose(){driver.quit();}
 }

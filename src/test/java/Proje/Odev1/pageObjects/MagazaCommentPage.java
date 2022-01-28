@@ -13,12 +13,12 @@ public class MagazaCommentPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    @FindBy(xpath = "//*[@id=\"contentListing\"]/div/div/div[1]/section[4]/div/div[5]/span[2]/i")
+    @FindBy(css = "#contentListing > div > div > div.filterArea > section.filter.filterProductPoint > div > div:nth-child(5) > span.ratingText > i")
     @CacheLookup
-    WebElement xpathMagazaComment;
+    WebElement magazaComment;
 
     public void checkedComment(){
-        String commentCount=xpathMagazaComment.getText();
+        String commentCount=magazaComment.getText();
         commentCount=commentCount.substring(1,commentCount.length()-1);//() is deleted
         Assert.assertTrue("Selected store comments count: "+commentCount,true);
 

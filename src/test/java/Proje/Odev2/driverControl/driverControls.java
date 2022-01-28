@@ -87,7 +87,7 @@ public class driverControls {
         System.setProperty("webdriver.chrome.args", "--disable-logging");
         System.setProperty("webdriver.chrome.verboseLogging", "false");
         System.setProperty("webdriver.chrome.silentOutput", "true");
-        //optionsch.addArguments("--headless");
+        optionsch.addArguments("--headless");
         optionsch.addArguments("--no-sandbox");
         optionsch.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         optionsch.addArguments("disable-infobars"); // disabling infobars
@@ -102,7 +102,7 @@ public class driverControls {
         optionsfi = new FirefoxOptions();
         System.setProperty("webdriver.gecko.args", "--disable-logging");
         System.setProperty("webdriver.gecko.silentOutput", "true");
-        //optionsfi.addArguments("--headless");
+        optionsfi.addArguments("--headless");
         System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
     }
