@@ -73,9 +73,11 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
  > Selenium Docker ortam gereklilikleri ayağa kaldırıldıktan sonra (**Docker_Selenium_Grid->true olduğundan emin olun!**) testlerin çalıştırılması selenium grid üzerinden yapılacaktır. Testleri bir IDE üzerinden(IntellijIdea-Eclipse) veya  komut satırından **mvn verify test** ile yürütebilirsiniz.      
 
  * [http://localhost:4444/ui/index.html](http://localhost:4444/ui/index.html) üzerinden browserların durumu takip edilebilir.
-  
+```diff  
 > Note: Proje1_Odev_1 de A dan Z' ye kadar olan mağaza isim adedinin `64524` olmasından dolayı test süresi uzundur.
 
+- macOS M1 Chip OS Docker Selenium Grid' i henüz desteklememektedir.
+```
     Selenium Grid :
     
 ![2022-01-23 (3)](https://user-images.githubusercontent.com/76232388/150695926-7365e1c2-cd7f-437a-ad2c-4e29c3ed9c2b.png)
