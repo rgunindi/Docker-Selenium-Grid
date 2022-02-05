@@ -1,8 +1,7 @@
 ## n11 TalentHub 2022 Case Test 
 ### Proje dizin yapısı
 
-
-![dizinYapisi](https://user-images.githubusercontent.com/76232388/150692400-2bf5e4f0-2e5d-4e54-918a-f8975026da8d.png)
+![proje-dizin-yapisi](https://user-images.githubusercontent.com/76232388/152658832-26a1db69-7f87-47fe-92af-bbb82d674f6a.png)
 
 n11 Test adımlarını anlayabilmek için öncelikle senaryo bilgilerini belirtelim:
   > 3 ayrı senaryo test edilmektedir. Senaryolarımız şunlardır:
@@ -41,9 +40,10 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
   Öncelikle varsayılan olarak testlerimiz selenium ortamında çalıştırılmayacak(`false`) şekilde parametre almaktadır. Bu parametrenin değiştirilerek testlerimiz docker selenim grid ortamında çalıştırılmaya hazır hale gelmektedir.
   
   Parametrenin belirtildiği kısım: 
-  
-  Img-1
-  
+ 
+ ```diff 
++Img-1
+ ```
   ![Proje1_Odev1.feature](https://user-images.githubusercontent.com/76232388/150688449-d1a8b403-b907-452a-bf45-afb0acb4cae1.png)
   
   Proje1 feature Dosyalarinda paremetrenin belirtildiği kısım Img-1 de gösteriştir.
@@ -81,6 +81,27 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
     Selenium Grid :
     
 ![2022-01-23 (3)](https://user-images.githubusercontent.com/76232388/150695926-7365e1c2-cd7f-437a-ad2c-4e29c3ed9c2b.png)
+
+# Raporlama
+
+Kullanmış olduğumuz cucumber-report kütüphanesi tarafından oluşturulan raporu incelemek için şu dizine bakınız: 
+> Docker-Selenium-Grid-TestCase\target\cucumber-report
+
+> cucumber.html adlı dosyayı açmanız durumunda test sonuçlarını gösteren aşağıda ki Img-2 ' ye benzer rapor çıktısını göreceksiniz.
+
+```diff 
++Img-2
+```
+![image](https://user-images.githubusercontent.com/76232388/152659653-27370d9e-88da-4288-888d-6615e7e1daeb.png)
+
+> Herhangi bir case test durumlarına bakmak için tıkladığınızda Img-3 ' e benzer rapor çıktısına ulaşabilirsiniz.
+
+```diff 
++Img-3
+```
+
+![image](https://user-images.githubusercontent.com/76232388/152659689-d1591fb6-b8ee-4019-acfe-e85e476c3350.png)
+
 
 **Ramazan G.**
     
