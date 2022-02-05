@@ -102,6 +102,13 @@ Kullanmış olduğumuz cucumber-report kütüphanesi tarafından oluşturulan ra
 
 ![image](https://user-images.githubusercontent.com/76232388/152659689-d1591fb6-b8ee-4019-acfe-e85e476c3350.png)
 
+---
+> **NOTE**
+
+Testler çalıştırılırken dikkat edilmesi gereken bir husus vardır: 
+Guest user olarak aynı IP adresinden çok sayıda hatalı ödeme işlemi yapılmaya çalışıldığında, n11 güvenlik sebebiyle <ins>Captcha sistemini otomatik olarak devreye aldığından ödeme adımlarının test işlemleri tamamlanamayacaktır.</ins> 
+
+---
 
 **Ramazan G.**
     
