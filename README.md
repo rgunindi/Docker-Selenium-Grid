@@ -1,8 +1,7 @@
 ## n11 TalentHub 2022 Case Test 
 ### Proje dizin yapısı
 
-
-![dizinYapisi](https://user-images.githubusercontent.com/76232388/150692400-2bf5e4f0-2e5d-4e54-918a-f8975026da8d.png)
+![proje-dizin-yapisi](https://user-images.githubusercontent.com/76232388/152658832-26a1db69-7f87-47fe-92af-bbb82d674f6a.png)
 
 n11 Test adımlarını anlayabilmek için öncelikle senaryo bilgilerini belirtelim:
   > 3 ayrı senaryo test edilmektedir. Senaryolarımız şunlardır:
