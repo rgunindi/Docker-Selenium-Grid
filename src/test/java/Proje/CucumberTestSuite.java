@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        plugin = {"pretty"},
+        plugin = {"pretty","html:target/cucumber-report/cucumber.html", "timeline:target/cucumber-report/"},
         features = "classpath:features",
         monochrome = true
-        //,dryRun = true
 )
 public class CucumberTestSuite {}
 

@@ -23,7 +23,6 @@ public class driverControls {
     static FirefoxOptions optionsfi;
     static EdgeOptions optionsed;
     static OperaOptions optionsop;
-    static ChromeOptions op = new ChromeOptions();
 
     public static WebDriver driverControl(WebDriver driver, String driverName, String seleniumGrid) {
         String dockerSeleniumGrid = seleniumGrid.toUpperCase();
@@ -96,7 +95,6 @@ public class driverControls {
         optionsch.addArguments("disable-infobars"); // disabling infobars
         optionsch.addArguments("--disable-extensions"); // disabling extensions
         optionsch.addArguments("--disable-gpu"); // applicable to windows os only
-      //  optionsch.addArguments("window-size=1024,1024"); // Bypass OS security model
         optionsch.addArguments("dom.ipc.processCount", "1");
         optionsch.addArguments("security.sandbox.content.level", "5");
         optionsch.addArguments("--disable-notifications");
@@ -106,7 +104,7 @@ public class driverControls {
         optionsfi = new FirefoxOptions();
         System.setProperty("webdriver.gecko.args", "--disable-logging");
         System.setProperty("webdriver.gecko.silentOutput", "true");
-       // optionsfi.addArguments("--headless");
+       optionsfi.addArguments("--headless");
         System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
     }

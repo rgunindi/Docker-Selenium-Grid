@@ -37,6 +37,13 @@
             <version>17.0.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.6.1</version>
+        </dependency>
+
         <!-- Log libraries -->
         <dependency>
             <groupId>ch.qos.logback</groupId>

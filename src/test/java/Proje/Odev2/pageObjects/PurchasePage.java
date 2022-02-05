@@ -1,5 +1,6 @@
 package Proje.Odev2.pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -54,6 +55,11 @@ public class PurchasePage {
     @FindBy(id = "js-paymentBtn")
     @CacheLookup
     WebElement paymentBtn;
+
+    @FindBy(css = ".errorMessage")
+    @CacheLookup
+    WebElement errorMessage;
+
 public void purchase(){
     cardBox1.sendKeys("1234");
     cardBox2.sendKeys("1234");
@@ -65,5 +71,6 @@ public void purchase(){
     securityCode.sendKeys("321");
     acceptAggrement.click();
     paymentBtn.click();
+    Assert.assertEquals("Geçersiz kredi kartı numarası.", errorMessage.getText());
 }
 }

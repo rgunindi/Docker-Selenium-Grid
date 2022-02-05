@@ -1,5 +1,6 @@
 package Proje.Odev3.pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -20,6 +21,9 @@ public class N11Page {
     @CacheLookup
     WebElement searchBtn;
 
+    @FindBy(xpath = "//*[text()[contains(.,'Iphone')]]")
+    @CacheLookup
+    WebElement resultIphone;
 
     @FindBy(xpath = "//*[@id=\"myLocation-close-info\"]")
     @CacheLookup
@@ -30,5 +34,14 @@ public class N11Page {
         disablePopUp();
     searchBox.sendKeys(word);
     searchBtn.click();
+        waits(2);
+        Assert.assertNotNull("ayfone is showed Iphone", resultIphone);
+    }
+
+    void waits(int time) {
+        try {
+            Thread.sleep((time * 1000L));
+        } catch (Exception ignored) {
+        }
     }
 }

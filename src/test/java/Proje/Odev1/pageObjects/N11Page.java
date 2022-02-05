@@ -14,8 +14,8 @@ public class N11Page {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    @FindBy(xpath = "/html/body/div[1]/header/div/div/div[3]/nav/ul/li[5]/span") ////*[@id="header"]/div/div/div[3]/nav/ul/li[5]/span
-    @CacheLookup    ///html/body/div[1]/header/div/div/div[3]/nav/ul/li[5]/span
+    @FindBy(xpath = "/html/body/div[1]/header/div/div/div[3]/nav/ul/li[5]/span")
+    @CacheLookup
     WebElement xpathMagazalar;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div[3]/nav/ul/li[5]/div/div/a[1]")

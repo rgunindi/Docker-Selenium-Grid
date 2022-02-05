@@ -11,8 +11,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -92,7 +90,6 @@ public class driverControls {
         optionsch.addArguments("disable-infobars"); // disabling infobars
         optionsch.addArguments("--disable-extensions"); // disabling extensions
         optionsch.addArguments("--disable-gpu"); // applicable to windows os only
-       // optionsch.addArguments("window-size=1024,1024"); // Bypass OS security model
         optionsch.addArguments("dom.ipc.processCount", "1");
         optionsch.addArguments("security.sandbox.content.level", "5");
         optionsch.addArguments("--disable-notifications");

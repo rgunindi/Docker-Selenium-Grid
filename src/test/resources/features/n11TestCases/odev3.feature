@@ -10,7 +10,7 @@ Feature: In the third one, the ones with free shipping are listed according to t
 
     Examples:
       |desired_browser|   |env | |Docker_Selenium_Grid|
-      |     Edge    |   |test|      |  true   |
+      |     Edge    |   |test|      |  false   |
 #      |     Chrome    |   |test|     |true|
 #      |     Firefox   |   |test|     |true|
-                     # |qa-staging-prod|
+                               # |qa-staging-prod|

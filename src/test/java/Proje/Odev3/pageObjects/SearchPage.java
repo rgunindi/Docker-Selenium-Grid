@@ -1,5 +1,6 @@
 package Proje.Odev3.pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,17 +28,20 @@ public class SearchPage {
     WebElement freeShipping;
 
     public void selectSecondBrand() { waits(2);
+        Assert.assertNotNull(secondBrand);
         secondBrand.findElements(By.tagName("label")).get(0).click();//->SecondBrand is clicked
         waits(2);
     }
 
     public void sortingByComments() {
+        Assert.assertNotNull(sortingType);
         new Select(sortingType).selectByValue("REVIEWS");
         waits(2);
     }
 
     public void freeShippingList() {
         freeShipping.click();
+        Assert.assertTrue(driver.findElement(By.id("freeShippingOption")).isSelected()); //free shipping IsSelected ?
     }
 
     void waits(int time){

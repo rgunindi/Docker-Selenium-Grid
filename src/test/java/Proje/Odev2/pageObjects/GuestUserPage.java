@@ -1,6 +1,6 @@
 package Proje.Odev2.pageObjects;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -37,11 +37,11 @@ public class GuestUserPage {
 
     @FindBy(id = "districtId")
     @CacheLookup
-    WebElement districtId; //--> Is Null n11.com
+    WebElement districtId;
 
     @FindBy(id = "neighbourhoodId")
     @CacheLookup
-    WebElement neighbourhoodId; //--> Is Null n11.com
+    WebElement neighbourhoodId;
 
     @FindBy(id = "postalCode")
     @CacheLookup
@@ -69,46 +69,31 @@ public class GuestUserPage {
 
     public void fillForm() { try{Thread.sleep(2000);}catch (Exception e){}
         guestUserLink.click();
+        Assert.assertEquals("https://www.n11.com/misafir-sepet", driver.getCurrentUrl());
         waits(1);
         guestEmail.sendKeys("n11guestUser@sharklasers.com");
         continueBtn.click();
         waits(1);
-        //fullName.click();
+
         fullName.sendKeys("Razaman Gunindi");
-    //    PerformScript(driver,"fullName","Ramazan Gunindi");
-  //      PerformScript2(driver,"cityId","2535");
+
         Select city=new Select(cityId);
         city.selectByValue("2535");
         waits(1);
         new Select(districtId).selectByValue("23076");
-    //    PerformScript2(driver,"districtId","23076");
         waits(1);
         new Select(neighbourhoodId).selectByValue("44323");
-  //      PerformScript2(driver,"neighbourhoodId","44323");
+
         addressDetail.sendKeys("Karsiyaka Izmir");
-//        PerformScript(driver,"addressDetail","Karsiyaka Izmir");
+
         gsm.click();gsm.sendKeys("5531231239");
-//        PerformScript(driver,"gsm","5531231239");
-        shippingAddresstcNO.sendKeys("16442922572");///////UNUTMA DEGISTIR.
-//        PerformScript(driver,"shippingAddresstcNO","16442922572");
+        shippingAddresstcNO.sendKeys("10000000832");
         addressName.sendKeys("Evim");
-//        PerformScript(driver,"addressName","Evim");
         goToPaymentBtn.click();
         waits(2);
     }
     void waits(int time){
         try{Thread.sleep((time* 1000L));}catch (Exception ignored){}
     }
-    static JavascriptExecutor js;
-    public static void PerformScript(WebDriver driver,String id,String value){
-        String script="document.getElementById('"+id+"').value='"+value+"';";
-        js= (JavascriptExecutor) driver;
-        js.executeScript(script);
-    }public static void PerformScript2(WebDriver driver,String id,String number){
-        String script="const textToFind = '"+number+"';\n" +
-                "const dd = document.getElementById ('"+id+"');\n" +
-                "dd.selectedIndex = [...dd.options].findIndex (option => option.text === textToFind);";
-        js= (JavascriptExecutor) driver;
-        js.executeScript(script);
-    }
+
 }

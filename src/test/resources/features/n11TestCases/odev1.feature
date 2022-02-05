@@ -12,8 +12,7 @@ Feature: In the first one, the number of comments made about the selected store 
 
     Examples:
     |desired_browser|   |env | |Docker_Selenium_Grid|
-    |     Firefox   |   |test|      |true|
-
+    |     Firefox   |   |test|      |false|
 #    |     Chrome    |   |test|      |true|
 #    |     Edge      |   |test|     |true|
-                     # |qa-staging-prod|
+                             # |qa-staging-prod|

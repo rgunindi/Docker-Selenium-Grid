@@ -21,7 +21,6 @@ public class MagazaCommentPage {
         String commentCount=magazaComment.getText();
         commentCount=commentCount.substring(1,commentCount.length()-1);//() is deleted
         Assert.assertTrue("Selected store comments count: "+commentCount,true);
-
         System.out.println("Selected store comments count: "+commentCount);
     }
 }
