@@ -1,52 +1,52 @@
 ## n11 TalentHub 2022 Case Test 
-### Proje dizin yapısı
+### Project directory structure
 
 ![proje-dizin-yapisi](https://user-images.githubusercontent.com/76232388/152658832-26a1db69-7f87-47fe-92af-bbb82d674f6a.png)
 
-n11 Test adımlarını anlayabilmek için öncelikle senaryo bilgilerini belirtelim:
-  > 3 ayrı senaryo test edilmektedir. Senaryolarımız şunlardır:
+n11 In order to understand the test steps, let's first specify the scenario information:
+  > Three different scenarios are tested. Our scenarios are:
    - Feature1: In the first one, the number of comments made about the selected store is checked.
    - Feature2: In the second time, the products added to the cart are tried to be purchased with the wrong credit card.
    - Feature3: In the third one, the ones with free shipping are listed according to the comment order of the searched product.
 
-   Belirttiğimiz senaryoların testleri yazılırken bazı kurallar temel alınarak hazırlanmıştır. Kısaca bu kurallardan bahsedelim:
-   - Bir test case senaryosu için hazırlanan testlerin sahip olması gereken bazı prensiplerden şunlar kullanılmıştır:
-     >- Her bir test case bir senaryoyu test etmiştir.
-     >- Kullanılan adımlar belirlenmiştir.
-     >- Test method isimleri test edilen senaryonun birer yansıması olarak adlandırılmışlardır.
-     >- Test edilen kısımların bır kısmı integration test kapsamında bir kısmı ise diğer kısımlardan bağımsız olarak test edilmiştir.
-     >- Testler otomatize edilerek çalıştırılmıştır.
-     >- Testler anlaşılır, okunaklı, tekrar edilebilir olarak yazılmıştır.
-     >- Testler başarısız olduğunda test koşumu durdurularak, ilgili hata ayrıntılı olarak belirtilmiştir.
-# Test Case' imizin aldığı parametler şunlardır:
-  - **desired_browser**: Hangi tarayıcının çalıştırılmak istendiğinin belirtildiği parametre(`Chrome-Firefox-Edge-Opera`)
-  - **env**: Hangi ortamda çalıştırılmak istendiğine dair parametre(`test-qa-staging-prod`)
-  - **Docker_Selenium_Grid**: Ortamında Çalıştırılmasının istenip istenmediğine dair parametre(`true/false`)
+   While the tests of the scenarios we have mentioned were written, they were prepared on the basis of some rules. Let's briefly talk about these rules:
+  - Some of the principles that the tests prepared for a test case scenario should have:
+      >- Each test case tested a scenario.
+      >- The steps used are determined.
+      >- Test method names are named as a reflection of the scenario being tested.
+      >- Some of the tested parts were tested within the scope of integration test and some of them were tested independently from other parts.
+      >- Tests were automated and run.
+      >- Tests are written in a clear, legible and repeatable manner.
+      >- When the tests fail, the test run is stopped and the related error is detailed.
+# Parameters taken by our Test Case are as follows:
+  - **desired_browser**: Parameter specifying which browser you want to run (`Chrome-Firefox-Edge-Opera`)
+  - **env**: Parameter on which environment you want to run (`test-qa-staging-prod`)
+  - **Docker_Selenium_Grid**: Parameter (`true/false`) about whether to run in the environment
   
-Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalıştırıldığını anlayabilğimiz standart çıktı örneği:
+All of the tests are known to be run in parallel. Example of standard output that we can understand running in parallel:
   - [pool-2-thread-2]
   - [pool-2-thread-3]
   - [pool-2-thread-4]
   
- Yukarı da belirtildiği gibi 'pool-2' iş parçacığı havuzunda 2-3-4 numaları farklı iş parçacıkları çalışmaktadır.
+ As mentioned above, different threads 2-3-4 are running in the 'pool-2' thread pool.
   
  # Selenium Grid
   -------------
-  Test adımlamızın docker selenium grid ortamında çalıştırılması mümkündür. Bunun için gerekli adımlar aşağıda açıklanmaktatır:
+  It is possible to run our test steps in the docker selenium grid environment. The necessary steps for this are described below:
   
-  | 1.Adım->Parametrenin Verilmesi |
+  | 1.Step->Giving the Parameter |
   |--------------|
   
-  Öncelikle varsayılan olarak testlerimiz selenium ortamında çalıştırılmayacak(`false`) şekilde parametre almaktadır. Bu parametrenin değiştirilerek testlerimiz docker selenim grid ortamında çalıştırılmaya hazır hale gelmektedir.
+  First of all, by default, our tests take parameters so that they will not run (`false`) in the selenium environment. By changing this parameter, our tests are ready to be run in the docker selenim grid environment.
   
-  Parametrenin belirtildiği kısım: 
+  The part where the parameter is specified: 
  
  ```diff 
 +Img-1
  ```
   ![Proje1_Odev1.feature](https://user-images.githubusercontent.com/76232388/150688449-d1a8b403-b907-452a-bf45-afb0acb4cae1.png)
   
-  Proje1 feature Dosyalarinda paremetrenin belirtildiği kısım Img-1 de gösteriştir.
+  The part where the parameter is specified in the Project1 feature files is shown in Img-1.
    > - false: Selenium Grid Off
    > - true:  Selenium Grid On
    
@@ -54,47 +54,47 @@ Testlerin tamamı paralel olarak çalıştırılabilmektedir. Paralel çalışt�
    -------------
    <img src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/256/Chrome-icon.png" alt="Girl in a jacket" width="30" height="30"> <img src="https://icons.iconarchive.com/icons/carlosjj/mozilla/256/Firefox-icon.png" width="30" height="30"> <img src="https://icons.iconarchive.com/icons/benjigarner/softdimension/256/Opera-icon.png" width="30" height="30"> <img src="https://img.icons8.com/color/48/000000/ms-edge-new.png" width="30" height="30"/>
     
-  | 2.Adım->Selenium Grid Ortamının Ayağa Kaldırılması | 
+  | 2.Step->Removing the Selenium Grid Environment | 
   |--------------|
   
-  Bu adımı iki(2) ayrı yol kullanarak yapabiliriz.
+  We can do this step using two (2) separate ways.
   
-  - Birinci Yol: Proje Dosya Ortamında bulunan dockerGridUp.sh adlı shell dosyasının çalıştırılmasıdır. 
+  - First Way: It is to run the shell file called dockerGridUp.sh in the Project File Environment. 
     ```sh
     Komut satırı : (windows)    : ./dockerGridUp.sh
-                   (MacOs/Linux): ./dockerGridUp.sh #Dosyaya calisma izni verilmesi için chmod +x dockerGridUp.sh
+                   (MacOs/Linux): ./dockerGridUp.sh #chmod +x dockerGridUp.sh to allow file to run
     ```
-  - İkinci Yol: Projenin Dosya Ortamında bulunan seleniumGrid.yml dosyasını ayağa kaldırmaktır. Bunun için:
+  - Second Way: It is to stand up the seleniumGrid.yml file located in the File Environment of the project. For this:
     ```sh
     Komut satırı : (windows)    : docker-compose -f .\seleniumGrid.yml up
                    (MacOs/Linux): docker-compose -f .\seleniumGrid.yml up
      ```    
      
- > Selenium Docker ortam gereklilikleri ayağa kaldırıldıktan sonra (**Docker_Selenium_Grid->true olduğundan emin olun!**) testlerin çalıştırılması selenium grid üzerinden yapılacaktır. Testleri bir IDE üzerinden(IntellijIdea-Eclipse) veya  komut satırından **mvn verify test** ile yürütebilirsiniz.      
+ > After the Selenium Docker environment requirements are up (**make sure it's Docker_Selenium_Grid->true!**) the tests will be run on the selenium grid. You can run tests from an IDE (IntellijIdea-Eclipse) or from the command line with **mvn verify test**.      
 
- * [http://localhost:4444/ui/index.html](http://localhost:4444/ui/index.html) üzerinden browserların durumu takip edilebilir.
+ * [http://localhost:4444/ui/index.html](http://localhost:4444/ui/index.html) The status of the browsers can be followed via
 ```diff  
-> Note: Proje1_Odev_1 de A dan Z' ye kadar olan mağaza isim adedinin `64524` olmasından dolayı test süresi uzundur.
+> Note: Since the number of store names from A to Z in Proje1_Odev_1 is `64524`, the test period is long.
 
-- macOS M1 Chip OS Docker Selenium Grid' i henüz desteklememektedir.
+- macOS M1 Chip OS Docker does not yet support Selenium Grid.
 ```
     Selenium Grid :
     
 ![2022-01-23 (3)](https://user-images.githubusercontent.com/76232388/150695926-7365e1c2-cd7f-437a-ad2c-4e29c3ed9c2b.png)
 
-# Raporlama
+# Reporting
 
-Kullanmış olduğumuz cucumber-report kütüphanesi tarafından oluşturulan raporu incelemek için şu dizine bakınız: 
+To review the report generated by the cucumber-report library we have used, see the following directory:
 > Docker-Selenium-Grid-TestCase\target\cucumber-report
 
-> cucumber.html adlı dosyayı açmanız durumunda test sonuçlarını gösteren aşağıda ki Img-2 ' ye benzer rapor çıktısını göreceksiniz.
+> If you open the file named cucumber.html, you will see the report output similar to Img-2 below showing the test results.
 
 ```diff 
 +Img-2
 ```
 ![image](https://user-images.githubusercontent.com/76232388/152659653-27370d9e-88da-4288-888d-6615e7e1daeb.png)
 
-> Herhangi bir case test durumlarına bakmak için tıkladığınızda Img-3 ' e benzer rapor çıktısına ulaşabilirsiniz.
+> When you click to look at any case test cases, you can reach the report output similar to Img-3.
 
 ```diff 
 +Img-3
@@ -105,8 +105,8 @@ Kullanmış olduğumuz cucumber-report kütüphanesi tarafından oluşturulan ra
 ---
 > **NOTE**
 
-Testler çalıştırılırken dikkat edilmesi gereken bir husus vardır: 
-Guest user olarak aynı IP adresinden çok sayıda hatalı ödeme işlemi yapılmaya çalışıldığında, n11 güvenlik sebebiyle <ins>Captcha sistemini otomatik olarak devreye aldığından ödeme adımlarının test işlemleri tamamlanamayacaktır.</ins> 
+There is one thing to consider when running tests:
+When trying to make a large number of incorrect payment transactions from the same IP address as a guest user, the test process of the payment steps will not be completed since n11 automatically activates the <ins>Captcha system for security reasons.</ins> 
 
 ---
 
