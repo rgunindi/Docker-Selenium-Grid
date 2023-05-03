@@ -1,4 +1,4 @@
-## n11 TalentHub 2022 Case Test 
+## n11 TalentHub 2022
 ### Project directory structure
 
 ![proje-dizin-yapisi](https://user-images.githubusercontent.com/76232388/152658832-26a1db69-7f87-47fe-92af-bbb82d674f6a.png)
