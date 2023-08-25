@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.2.7</logback.version>
         <encoding>UTF-8</encoding>
     </properties>
 
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>5.6.1</version>
+            <version>5.7.3</version>
         </dependency>
 
         <!-- Log libraries -->
@@ -83,7 +83,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
+            <version>5.5.0</version>
         </dependency>
     </dependencies>
     <build>
