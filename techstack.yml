@@ -1,0 +1,202 @@
+repo_name: rgunindi/Docker-Selenium-Grid
+report_id: e6f20eea5d24c3c7d3f01acd2e810b60
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-08T19:41:33+00:00'
+requested_by: rgunindi
+provider: github
+branch: main
+detected_tools_count: 15
+tools:
+- name: Gherkin
+  description: A plain-text language with a simple structure
+  website_url: https://cucumber.io/docs/gherkin/reference/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2460/default_aff27c02548fadb1b7e6f85a2b0da1c5dca5cc08.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid
+  detection_source: Repo Metadata
+- name: Java
+  description: A concurrent, class-based, object-oriented, language specifically designed
+    to have as few implementation dependencies as possible
+  website_url: https://www.java.com
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid
+  detection_source: Repo Metadata
+- name: JUnit
+  description: A programmer-oriented testing framework for Java
+  website_url: http://junit.org/
+  version: 4.13.1
+  license: EPL-1.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/2020/874086.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 08:57:21.000000000 Z
+- name: Logback
+  description: A logging framework for Java applications
+  website_url: https://logback.qos.ch/
+  open_source: false
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Log Management
+  image_url: https://img.stackshare.io/service/2923/05518ecaa42841e834421e9d6987b04f_400x400.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: snyk-bot
+  last_updated_on: 2023-08-25 11:57:56.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid
+  detection_source: Repo Metadata
+- name: ch.qos.logback:logback-classic
+  description: Logback-classic module
+  version: 1.2.7
+  license: EPL-1.0,LGPL-2.1+
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: snyk-bot
+  last_updated_on: 2023-08-25 11:57:56.000000000 Z
+  vulnerabilities:
+  - name: logback serialization vulnerability
+    cve_id: CVE-2023-6378
+    cve_url: https://github.com/advisories/GHSA-vmq6-5m68-f53m
+    detected_date: Nov 30
+    severity: high
+    first_patched: 1.2.13
+- name: io.cucumber:cucumber-java
+  description: Cucumber for the JVM
+  version: 7.2.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-02-05 21:49:31.000000000 Z
+- name: io.cucumber:cucumber-junit
+  description: Cucumber for the JVM
+  version: 7.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-02-05 21:49:31.000000000 Z
+- name: io.github.bonigarcia:webdrivermanager
+  description: Automatic Selenium WebDriver binaries management in runtime for Java
+  version: 5.5.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 14:06:26.000000000 Z
+- name: junit:junit
+  description: JUnit is a unit testing framework for Java
+  version: 4.13.1
+  license: EPL-1.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 14:06:26.000000000 Z
+- name: net.masterthought:cucumber-reporting
+  description: This project provides pretty html reports for Cucumber
+  version: 5.7.3
+  license: LGPL-2.1
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-02-05 21:49:31.000000000 Z
+- name: org.assertj:assertj-core
+  description: Rich and fluent assertions for testing for Java
+  version: 3.6.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 14:06:26.000000000 Z
+- name: org.hamcrest:hamcrest
+  description: Core API and libraries of hamcrest matcher framework
+  version: '2.2'
+  license: DSDP
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 14:06:26.000000000 Z
+- name: org.seleniumhq.selenium:selenium-java
+  description: Selenium automates browsers
+  version: 4.1.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/rgunindi/Docker-Selenium-Grid/blob/main/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Ramazan-xcod3r
+  last_updated_on: 2022-01-23 14:06:26.000000000 Z
